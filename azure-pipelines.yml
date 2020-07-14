@@ -6,17 +6,17 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    npm install
-    npm run build 
-    npm test
-   displayName: 'npm install, build, and test'
+pool: 
+  vmImage: ubuntu-latest
+steps: 
+  - 
+    displayName: "Install Node.js"
+    inputs: 
+      versionSpec: 10.x
+    task: NodeTool@0
+  - 
+    displayName: "npm install, build, and test"
+    script: |
+        npm install
+        npm run build 
+        npm test
